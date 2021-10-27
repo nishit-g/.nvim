@@ -1,4 +1,5 @@
 local cmp = require'cmp'
+local lspkind = require('lspkind')
 
 cmp.setup({
     snippet = {
@@ -20,6 +21,9 @@ cmp.setup({
       }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
+    formatting = {
+        format = lspkind.cmp_format(),
+    },   
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       -- { name = 'vsnip' }, -- For vsnip users.

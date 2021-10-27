@@ -34,5 +34,8 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'hrsh7th/cmp-path'
         Plug 'hrsh7th/cmp-cmdline'
         Plug 'hrsh7th/nvim-cmp'
+
+        " Symbols in autocompletion layout
+        Plug 'onsails/lspkind-nvim'
     end
 call plug#end()
