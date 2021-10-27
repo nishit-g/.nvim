@@ -14,7 +14,7 @@ saga.init_lsp_saga {
 -- MAPPINGS
 local opts = {noremap = true, silent=true}
 -- lsp provider to find the cursor word definition and reference
-vim.api.nvim_set_keymap('n', 'lh', '<cmd>:Lspsaga lsp_finder<CR>', opts)
+vim.api.nvim_set_keymap('n', ';r', '<cmd>:Lspsaga lsp_finder<CR>', opts)
 -- Hover documentaion
 vim.api.nvim_set_keymap('n', 'K', '<cmd>:Lspsaga hover_doc<CR>', opts)
 -- scroll down hover doc or scroll in definition preview
@@ -26,15 +26,15 @@ vim.api.nvim_set_keymap('n', '<leader>ca', '<cmd>:Lspsaga code_action<CR>', opts
 -- Visual mode all code actions available
 vim.api.nvim_set_keymap('v', '<leader>ca', '<cmd>:<c-u>Lspsaga range_code_action<CR>', opts)
 -- Signature View
-vim.api.nvim_set_keymap('n', 'ls', '<cmd>:Lspsaga signature_help<CR>', opts)
+vim.api.nvim_set_keymap('n', ';s', '<cmd>:Lspsaga signature_help<CR>', opts)
 -- Rename / Refactor
-vim.api.nvim_set_keymap('n', 'lr', '<cmd>:Lspsaga rename<CR>', opts)
+vim.api.nvim_set_keymap('n', ';R', '<cmd>:Lspsaga rename<CR>', opts)
 
 -- Diagnostics
 -- Show Line Diagnostics
 vim.api.nvim_set_keymap('n', '<leader>ld', '<cmd>:Lspsaga show_line_diagnostics<CR>', opts)
 -- Show Cursor Diagnostics
-vim.api.nvim_set_keymap('n', '<leader>lc', '<cmd>:Lspsaga show_cursor_diagnostics<CR>', opts)
+vim.api.nvim_set_keymap('n', ';c', '<cmd>:Lspsaga show_cursor_diagnostics<CR>', opts)
 -- Jump Diagnostics
 vim.api.nvim_set_keymap('n', '[d', '<cmd>:Lspsaga diagnostic_jump_next<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>:Lspsaga diagnostic_jump_prev<CR>', opts)
