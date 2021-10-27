@@ -37,5 +37,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
         " Symbols in autocompletion layout
         Plug 'onsails/lspkind-nvim'
+        " Snippets
+        Plug 'L3MON4D3/LuaSnip'
     end
 call plug#end()
