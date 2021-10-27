@@ -10,6 +10,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+
 lua <<EOF
 local map = vim.api.nvim_set_keymap
 
@@ -21,6 +22,9 @@ map("n", "<C-h>", "<C-w>h",opts)
 map("n", "<C-l>", "<C-w>l",opts)
 map("n", "<C-j>", "<C-w>j",opts)
 map("n", "<C-k>", "<C-w>k",opts)
+
+-- Better Escape 
+map("i", "jj", "<Esc>",opts)
 
 EOF
 

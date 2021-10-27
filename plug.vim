@@ -5,11 +5,13 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
     if has('nvim')
         " Language Server protocol
         Plug 'neovim/nvim-lspconfig'
+		" go to definition etc
         Plug 'glepnir/lspsaga.nvim'
         " Language/Syntax Highlighting
         Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-		" go to definition etc
-        Plug 'nvim-lua/completion-nvim'
+        
+        "Plug 'nvim-lua/completion-nvim'
+        
 		" Fuzzy finder
         Plug 'nvim-lua/popup.nvim'
         Plug 'nvim-lua/plenary.nvim'
@@ -25,5 +27,12 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 		Plug 'kyazdani42/nvim-tree.lua'
         " Bufferline
         Plug 'akinsho/bufferline.nvim'
+
+        " Completion
+        Plug 'hrsh7th/cmp-nvim-lsp'
+        Plug 'hrsh7th/cmp-buffer'
+        Plug 'hrsh7th/cmp-path'
+        Plug 'hrsh7th/cmp-cmdline'
+        Plug 'hrsh7th/nvim-cmp'
     end
 call plug#end()
