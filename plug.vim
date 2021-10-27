@@ -23,5 +23,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'folke/lsp-colors.nvim' 
 		" File Explorer tree
 		Plug 'kyazdani42/nvim-tree.lua'
+        " Bufferline
+        Plug 'akinsho/bufferline.nvim'
     end
 call plug#end()
