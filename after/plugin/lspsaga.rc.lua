@@ -39,3 +39,6 @@ vim.api.nvim_set_keymap('n', ';c', '<cmd>:Lspsaga show_cursor_diagnostics<CR>', 
 vim.api.nvim_set_keymap('n', '[d', '<cmd>:Lspsaga diagnostic_jump_next<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>:Lspsaga diagnostic_jump_prev<CR>', opts)
 
+-- Terminal
+vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>:Lspsaga open_floaterm<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>tq', '<cmd><C-"\\"><C-n>:Lspsaga open_floaterm<CR>', opts)

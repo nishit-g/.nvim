@@ -39,5 +39,9 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'onsails/lspkind-nvim'
         " Snippets
         Plug 'L3MON4D3/LuaSnip'
+        " Formatter
+        Plug 'mhartington/formatter.nvim'
+        "Plug 'jose-elias-alvarez/null-ls.nvim'
+        " Terminal 
     end
 call plug#end()

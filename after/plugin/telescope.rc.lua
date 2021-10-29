@@ -17,7 +17,7 @@ telescope.setup {
       },
     mappings = {
       n = {
-        ["qq"] = actions.close
+        ["q"] = actions.close
       },
     },
       prompt_prefix = "   ",
