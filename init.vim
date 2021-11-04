@@ -1,6 +1,7 @@
 runtime ./plug.vim
 
 syntax on
+" set background = dark
 set termguicolors
 colorscheme onedark
 set number

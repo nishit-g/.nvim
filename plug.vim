@@ -6,7 +6,8 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         " Language Server protocol
         Plug 'neovim/nvim-lspconfig'
 		" go to definition etc
-        Plug 'glepnir/lspsaga.nvim'
+        " Plug 'glepnir/lspsaga.nvim'
+        Plug 'tami5/lspsaga.nvim'
         " Language/Syntax Highlighting
         Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
         
@@ -43,5 +44,10 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'mhartington/formatter.nvim'
         "Plug 'jose-elias-alvarez/null-ls.nvim'
         " Terminal 
+        " Comment
+       Plug 'terrortylor/nvim-comment'  
+       Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+       " Indent Line
+        Plug 'lukas-reineke/indent-blankline.nvim'
     end
 call plug#end()
