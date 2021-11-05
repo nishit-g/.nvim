@@ -35,15 +35,18 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'hrsh7th/cmp-path'
         Plug 'hrsh7th/cmp-cmdline'
         Plug 'hrsh7th/nvim-cmp'
-
+    
         " Symbols in autocompletion layout
         Plug 'onsails/lspkind-nvim'
         " Snippets
         Plug 'L3MON4D3/LuaSnip'
+        Plug 'rafamadriz/friendly-snippets'
+        Plug 'saadparwaiz1/cmp_luasnip'
         " Formatter
         Plug 'mhartington/formatter.nvim'
         "Plug 'jose-elias-alvarez/null-ls.nvim'
         " Terminal 
+        Plug 'akinsho/toggleterm.nvim'
         " Comment
        Plug 'terrortylor/nvim-comment'  
        Plug 'JoosepAlviste/nvim-ts-context-commentstring'
