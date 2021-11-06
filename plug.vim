@@ -35,7 +35,6 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'hrsh7th/cmp-path'
         Plug 'hrsh7th/cmp-cmdline'
         Plug 'hrsh7th/nvim-cmp'
-    
         " Symbols in autocompletion layout
         Plug 'onsails/lspkind-nvim'
         " Snippets
@@ -52,5 +51,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
        Plug 'JoosepAlviste/nvim-ts-context-commentstring'
        " Indent Line
         Plug 'lukas-reineke/indent-blankline.nvim'
+        " Git Signs
+        Plug 'lewis6991/gitsigns.nvim'
     end
 call plug#end()
