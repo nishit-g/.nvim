@@ -1,3 +1,6 @@
+local status, _ = pcall(require, "bufferline")
+if (not status) then return end
+
 vim.opt.termguicolors = true
 
 -- Mappings

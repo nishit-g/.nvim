@@ -12,23 +12,21 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
         
         "Plug 'nvim-lua/completion-nvim'
-        
-		" Fuzzy finder
+		    " Fuzzy finder
         Plug 'nvim-lua/popup.nvim'
         Plug 'nvim-lua/plenary.nvim'
         " FZF
         Plug 'nvim-telescope/telescope.nvim'
-		" DevIcons
+		    " DevIcons
         Plug 'kyazdani42/nvim-web-devicons'
-		" Bottom Satus line
+		    " Bottom Satus line
         Plug 'hoob3rt/lualine.nvim'
-		" Colors for LSP
+		    " Colors for LSP
         Plug 'folke/lsp-colors.nvim' 
-		" File Explorer tree
-		Plug 'kyazdani42/nvim-tree.lua'
+		    " File Explorer tree
+		    Plug 'kyazdani42/nvim-tree.lua'
         " Bufferline
         Plug 'akinsho/bufferline.nvim'
-
         " Completion
         Plug 'hrsh7th/cmp-nvim-lsp'
         Plug 'hrsh7th/cmp-buffer'
@@ -47,11 +45,15 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         " Terminal 
         Plug 'akinsho/toggleterm.nvim'
         " Comment
-       Plug 'terrortylor/nvim-comment'  
-       Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-       " Indent Line
+        Plug 'terrortylor/nvim-comment'  
+        Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+        "Indent Line
         Plug 'lukas-reineke/indent-blankline.nvim'
         " Git Signs
         Plug 'lewis6991/gitsigns.nvim'
+        " Smooth scrolling
+        Plug 'karb94/neoscroll.nvim'
+        " Auto pairs
+        Plug 'windwp/nvim-autopairs'
     end
 call plug#end()
