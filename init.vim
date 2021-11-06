@@ -29,6 +29,7 @@ map("i", "jj", "<Esc>",opts)
 
 -- Close Buffer // Copied from chadrc github
 map("n", "<leader>x", ":lua close_buffer() <CR>",opts)
+map("n", "<Esc>", ":noh <CR>", opts)
 
 close_buffer = function(bufexpr, force)
    -- This is a modification of a NeoVim plugin from
