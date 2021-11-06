@@ -11,6 +11,8 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set clipboard=unnamed
+set cursorline
+highlight CursorLineNr cterm=bold ctermbg=15 ctermfg=8 gui=NONE  guifg=#e8bc1c
 
 lua <<EOF
 local map = vim.api.nvim_set_keymap
