@@ -1,11 +1,9 @@
-if !exists('g:lspconfig')
-  finish
-endif
+local status, lspconfig = pcall(require, "lspconfig")
+if (not status) then return end
 
 
-lua << EOF
-	local nvim_lsp = require('lspconfig')
-	local protocol = require'vim.lsp.protocol'
+local nvim_lsp = require('lspconfig')
+local protocol = require'vim.lsp.protocol'
 
 
 -- Use an on_attach function to only map the following keys 
@@ -41,7 +39,7 @@ nvim_lsp.tsserver.setup {
 }
 
 
-local servers = { "html", "cssls", "jsonls", "diagnosticls" }
+local servers = { "html", "cssls", "jsonls", "diagnosticls", "sumneko_lua" }
    for _, lsp in ipairs(servers) do      
        nvim_lsp[lsp].setup {         
            on_attach = on_attach,         
@@ -80,5 +78,4 @@ protocol.CompletionItemKind = {
     '', -- TypeParameter
   }
 
-EOF
 
