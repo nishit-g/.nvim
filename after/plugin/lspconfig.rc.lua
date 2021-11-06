@@ -39,7 +39,7 @@ nvim_lsp.tsserver.setup {
 }
 
 
-local servers = { "html", "cssls", "jsonls", "diagnosticls", "sumneko_lua" }
+local servers = { "html", "cssls", "jsonls", "diagnosticls" }
    for _, lsp in ipairs(servers) do      
        nvim_lsp[lsp].setup {         
            on_attach = on_attach,         
