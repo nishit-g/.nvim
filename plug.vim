@@ -1,8 +1,8 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rhubarb'
-	Plug 'https://github.com/joshdick/onedark.vim.git'
     if has('nvim')
+      Plug 'joshdick/onedark.vim'
         " Language Server protocol
         Plug 'neovim/nvim-lspconfig'
 		" go to definition etc
