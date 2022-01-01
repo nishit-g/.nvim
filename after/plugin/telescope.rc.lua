@@ -71,7 +71,7 @@ telescope.setup {
    },
 }
 
--- nnoremap <silent><leader>ff <cmd>Telescope find_files<cr>
+-- nnoremap <silent><leader>ff <md>Telescope find_files<cr>
 -- nnoremap <silent><leader>fr <cmd>Telescope live_grep<cr>
 -- nnoremap <silent><leader>fb <cmd>Telescope buffers<cr>
 -- nnoremap <silent><leader>ft <cmd>Telescope help_tags<cr>

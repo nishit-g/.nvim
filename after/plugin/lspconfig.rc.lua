@@ -24,7 +24,7 @@ local protocol = require'vim.lsp.protocol'
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup FormatAutogroup]]
     vim.api.nvim_command [[autocmd!]]
-    vim.api.nvim_command [[autocmd BufWritePost *js,*jsx,*ts,*tsx FormatWrite]]
+    vim.api.nvim_command [[autocmd BufWritePost *js,*jsx,*ts,*tsx,*cpp FormatWrite]]
     vim.api.nvim_command [[augroup END]]
   end
 
@@ -39,7 +39,7 @@ nvim_lsp.tsserver.setup {
 }
 
 
-local servers = { "html", "cssls", "jsonls", "diagnosticls" }
+local servers = { "html", "cssls", "jsonls", "diagnosticls", "jdtls", "yamlls", "clangd", "emmet_ls"}
    for _, lsp in ipairs(servers) do      
        nvim_lsp[lsp].setup {         
            on_attach = on_attach,         

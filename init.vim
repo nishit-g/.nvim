@@ -2,9 +2,10 @@ runtime ./plug.vim
 
 syntax on
 " set background = dark
+set number
 set termguicolors
 colorscheme onedark
-set number
+" colorscheme kanagawa
 set relativenumber
 set tabstop=2
 set shiftwidth=2
@@ -13,7 +14,8 @@ set expandtab
 set clipboard=unnamed
 set cursorline
 highlight CursorLineNr cterm=bold ctermbg=15 ctermfg=8 gui=NONE  guifg=#e8bc1c
-
+" set ctermbg=none 
+" set guibg=none
 lua <<EOF
 local map = vim.api.nvim_set_keymap
 
@@ -25,6 +27,15 @@ map("n", "<C-h>", "<C-w>h",opts)
 map("n", "<C-l>", "<C-w>l",opts)
 map("n", "<C-j>", "<C-w>j",opts)
 map("n", "<C-k>", "<C-w>k",opts)
+
+-- Move Code line up / down
+-- Visual mode
+map("v", "J", ":m '>+1<CR>gv=gv",opts)
+map("v", "K", ":m '<-2<CR>gv=gv",opts)
+-- Normal Mode
+
+--Copy till end of the line 
+map("n", "Y", "y$",opts)
 
 -- Better Escape 
 map("i", "jj", "<Esc>",opts)

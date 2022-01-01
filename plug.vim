@@ -1,7 +1,10 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+  Plug 'dstein64/vim-startuptime'
+  Plug 'lewis6991/impatient.nvim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rhubarb'
-    if has('nvim')
+  Plug 'rebelot/kanagawa.nvim'    
+  if has('nvim')
       Plug 'joshdick/onedark.vim'
         " Language Server protocol
         Plug 'neovim/nvim-lspconfig'
