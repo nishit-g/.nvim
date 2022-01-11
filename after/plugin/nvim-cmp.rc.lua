@@ -62,6 +62,7 @@ cmp.setup({
         format = lspkind.cmp_format(),
     },   
     sources = cmp.config.sources({
+ 	    { name = 'cmp_tabnine' },
       { name = 'nvim_lsp' },
       { name = 'luasnip' }, -- For luasnip users.
     }, {

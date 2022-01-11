@@ -58,5 +58,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'karb94/neoscroll.nvim'
         " Auto pairs
         Plug 'windwp/nvim-autopairs'
+        " Tabnine auto Completion
+        Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }    
     end
 call plug#end()

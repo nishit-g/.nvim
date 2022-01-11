@@ -30,7 +30,7 @@ local protocol = require'vim.lsp.protocol'
 
   -- require 'completion'.on_attach(client, bufnr)
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  end
+end
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
@@ -38,8 +38,13 @@ nvim_lsp.tsserver.setup {
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
 }
 
+nvim_lsp.emmet_ls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"html" }
+}
 
-local servers = { "html", "cssls", "jsonls", "diagnosticls", "jdtls", "yamlls", "clangd", "emmet_ls"}
+local servers = { "html", "cssls", "jsonls", "diagnosticls", "jdtls", "yamlls", "clangd" }
    for _, lsp in ipairs(servers) do      
        nvim_lsp[lsp].setup {         
            on_attach = on_attach,         
