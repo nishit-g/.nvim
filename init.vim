@@ -43,6 +43,13 @@ map("i", "jj", "<Esc>",opts)
 -- Close Buffer // Copied from chadrc github
 map("n", "<leader>x", ":lua close_buffer() <CR>",opts)
 map("n", "<Esc>", ":noh <CR>", opts)
+-- Git mappings
+map("n", "<leader>gp", ":Git push<CR>", opts)
+map("n", "<leader>g", ":G<CR>", opts)
+map("n", "<leader>gc", ":Git commit<CR>", opts)
+map("n", "<leader>gb", ":Git blame<CR>", opts)
+map("n", "<leader>gh", ":diffget //2<CR>", opts)
+map("n", "<leader>gl", ":diffget //3<CR>", opts)
 
 close_buffer = function(bufexpr, force)
    -- This is a modification of a NeoVim plugin from
