@@ -1,5 +1,5 @@
 local present, nvimtree = pcall(require, "nvim-tree")
-
+require'nvim-tree'.setup {}
 if not present then
    return
 end
@@ -10,14 +10,18 @@ vim.o.termguicolors=true
 
 g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
 -- g.nvim_tree_git_hl = git_status
-g.nvim_tree_gitignore = 0
+g.nvim_tree_gitignore = 1
 g.nvim_tree_hide_dotfiles = 0
-g.nvim_tree_highlight_opened_files = 0
+g.nvim_tree_show_ignored = 0
+g.nvim_tree_highlight_opened_files = 1
+g.nvim_tree_lsp_diagnostics = 0
 g.nvim_tree_indent_markers = 1
 g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
-g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
+g.nvim_tree_quit_on_open = 1 -- closes tree when file's opened
 g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
---
+g.nvim_tree_auto_open = 1
+g.nvim_tree_auto_ignore_ft = {'startify', 'dashboard'} -- empty by default, don't auto open tree on specific filetypes.
+
 g.nvim_tree_show_icons = {
    folders = 1,
    --folder_arrows= 1,
@@ -92,7 +96,7 @@ require'nvim-tree'.setup {
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
-    enable      = false,
+    enable      = true,
     -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
     -- only relevant when `update_focused_file.enable` is true
     update_cwd  = false,
@@ -107,7 +111,10 @@ require'nvim-tree'.setup {
     -- the command arguments as a list
     args = {}
   },
-
+  git = {
+    enable = true,
+    ignore = false,
+  },
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
     width = 30,
