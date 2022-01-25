@@ -60,5 +60,9 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'windwp/nvim-autopairs'
         " Tabnine auto Completion
         Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }    
+        " Debugger
+        Plug 'mfussenegger/nvim-dap'
+        " Dap UI
+        Plug 'rcarriga/nvim-dap-ui'
     end
 call plug#end()
