@@ -6,8 +6,14 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+-- vim.fn.sign_define('DapBreakpoint', {text='', texthl='', linehl='', numhl=''})
+-- vim.fn.sign_define('DapBreakpointRejected', {text='??', texthl='', linehl='', numhl=''})
+-- vim.fn.sign_define('DapStopped', {text='??', texthl='', linehl='', numhl=''})
+
 local map = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent=true}
+
+-- dap.set_log_level('TRACE')
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
@@ -21,7 +27,7 @@ end
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
-  args = {os.getenv('HOME') .. '/pprojects/vscode-node-debug2/out/src/nodeDebug.js'},
+  args = {os.getenv('HOME') .. '/personal/vscode-node-debug2/out/src/nodeDebug.js'},
 }
 
 dap.configurations.javascript = {
