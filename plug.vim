@@ -64,5 +64,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
         Plug 'mfussenegger/nvim-dap'
         " Dap UI
         Plug 'rcarriga/nvim-dap-ui'
+        " Github CoPilot
+        Plug 'github/copilot.vim'
     end
 call plug#end()
