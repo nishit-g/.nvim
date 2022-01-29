@@ -56,3 +56,7 @@ map('n', '<leader>ff', '<cmd>:Telescope find_files<CR>', opts)
 map('n', '<leader>fw', '<cmd>:Telescope live_grep<CR>', opts)
 map('n', '<leader>fb', '<cmd>:Telescope buffers<CR>', opts)
 map('n', '<leader>ft', '<cmd>:Telescope help_tags<CR>', opts)
+
+-- Comment
+-- gcc : line comment
+-- gbc : block comment
