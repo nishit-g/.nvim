@@ -60,3 +60,7 @@ map('n', '<leader>ft', '<cmd>:Telescope help_tags<CR>', opts)
 -- Comment
 -- gcc : line comment
 -- gbc : block comment
+
+-- NvimTree
+map('n', '<C-n>', '<cmd>:NvimTreeToggle<CR>', opts)
+map('n', '<leader>e', '<cmd>:NvimTreeFocus<CR>', opts)
