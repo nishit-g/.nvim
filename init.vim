@@ -1,10 +1,10 @@
-runtime ./plug.vim
+" runtime ./plug.vim
 
 syntax on
 " set background = dark
 set number
 set termguicolors
-colorscheme onedark
+" colorscheme onedark
 " colorscheme kanagawa
 set relativenumber
 set tabstop=2
@@ -22,6 +22,7 @@ local map = vim.api.nvim_set_keymap
 vim.g.mapleader=' '
 
 -- Better Window Navigation
+require 'user.plugins'
 local opts = {noremap = true, silent=true}
 map("n", "<C-h>", "<C-w>h",opts)
 map("n", "<C-l>", "<C-w>l",opts)
