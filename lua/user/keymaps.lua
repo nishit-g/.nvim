@@ -35,35 +35,43 @@ map("n", "<C-Down>", ":resize +2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
---Copy till end of the line 
-map("n", "Y", "y$",opts)
+--Copy till end of the line
+map("n", "Y", "y$", opts)
 
--- Better Escape 
-map("i", "jj", "<Esc>",opts)
+-- Better Escape
+map("i", "jj", "<Esc>", opts)
 
--- No Highlight 
+-- No Highlight
 map("n", "<Esc>", ":noh <CR>", opts)
 
 -- Move Code line up / down
 -- Visual mode
-map("v", "J", ":m '>+1<CR>gv=gv",opts)
-map("v", "K", ":m '<-2<CR>gv=gv",opts)
+map("v", "J", ":m '>+1<CR>gv=gv", opts)
+map("v", "K", ":m '<-2<CR>gv=gv", opts)
 -- tmux-sessionizer
 map("n", "<leader><C-f>", ":silent !tmux neww tmux-sessionizer<CR>", opts)
 -- Telescope
 
-map('n', '<leader>ff', '<cmd>:Telescope find_files<CR>', opts)
-map('n', '<leader>fw', '<cmd>:Telescope live_grep<CR>', opts)
-map('n', '<leader>fb', '<cmd>:Telescope buffers<CR>', opts)
-map('n', '<leader>ft', '<cmd>:Telescope help_tags<CR>', opts)
+map("n", "<leader>ff", "<cmd>:Telescope find_files<CR>", opts)
+map("n", "<leader>fw", "<cmd>:Telescope live_grep<CR>", opts)
+map("n", "<leader>fb", "<cmd>:Telescope buffers<CR>", opts)
+map("n", "<leader>ft", "<cmd>:Telescope help_tags<CR>", opts)
 
 -- Comment
 -- gcc : line comment
 -- gbc : block comment
 
 -- NvimTree
-map('n', '<C-n>', '<cmd>:NvimTreeToggle<CR>', opts)
-map('n', '<leader>e', '<cmd>:NvimTreeFocus<CR>', opts)
+map("n", "<C-n>", "<cmd>:NvimTreeToggle<CR>", opts)
+map("n", "<leader>e", "<cmd>:NvimTreeFocus<CR>", opts)
 
 -- Close Buffer
-map('n', '<leader>x', '<cmd>:bdelete<CR>', opts)
+map("n", "<leader>x", "<cmd>:bdelete<CR>", opts)
+
+-- Git
+map("n", "<leader>gp", ":Git push<CR>", opts)
+map("n", "<leader>gg", ":G<CR>", opts)
+map("n", "<leader>gc", ":Git commit<CR>", opts)
+map("n", "<leader>gb", ":Git blame<CR>", opts)
+map("n", "<leader>gh", ":diffget //2<CR>", opts)
+map("n", "<leader>gl", ":diffget //3<CR>", opts)

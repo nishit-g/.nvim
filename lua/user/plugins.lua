@@ -85,6 +85,9 @@ return packer.startup(function(use)
 	-- Startup Time
 	use("dstein64/vim-startuptime")
 	use("lewis6991/impatient.nvim")
+	-- Git
+	use("tpope/vim-fugitive")
+	use("tpope/vim-rhubarb")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
