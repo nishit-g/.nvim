@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
+    url = "https://github.com/glepnir/lspsaga.nvim"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
