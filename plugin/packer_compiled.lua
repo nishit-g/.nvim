@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -208,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
   }
 }
 

@@ -82,6 +82,9 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	-- Indent Blankline
 	use("lukas-reineke/indent-blankline.nvim")
+	-- Startup Time
+	use("dstein64/vim-startuptime")
+	use("lewis6991/impatient.nvim")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
