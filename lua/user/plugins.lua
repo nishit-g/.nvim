@@ -57,7 +57,7 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters  -- use { "ellisonleao/gruvbox.nvim" }
-  use('glepnir/lspsaga.nvim') 
+	use("glepnir/lspsaga.nvim")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -78,6 +78,8 @@ return packer.startup(function(use)
 	-- Bufferline
 	use("akinsho/bufferline.nvim")
 
+	-- DevIcons
+	use("kyazdani42/nvim-web-devicons")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

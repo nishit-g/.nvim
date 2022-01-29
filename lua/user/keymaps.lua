@@ -64,3 +64,6 @@ map('n', '<leader>ft', '<cmd>:Telescope help_tags<CR>', opts)
 -- NvimTree
 map('n', '<C-n>', '<cmd>:NvimTreeToggle<CR>', opts)
 map('n', '<leader>e', '<cmd>:NvimTreeFocus<CR>', opts)
+
+-- Close Buffer
+map('n', '<leader>x', '<cmd>:bdelete<CR>', opts)
