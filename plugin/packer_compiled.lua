@@ -124,6 +124,16 @@ _G.packer_plugins = {
     path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lsp-colors.nvim"] = {
+    loaded = true,
+    path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
+    url = "https://github.com/folke/lsp-colors.nvim"
+  },
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
