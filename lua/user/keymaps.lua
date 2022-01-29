@@ -48,3 +48,11 @@ map("n", "<Esc>", ":noh <CR>", opts)
 -- Visual mode
 map("v", "J", ":m '>+1<CR>gv=gv",opts)
 map("v", "K", ":m '<-2<CR>gv=gv",opts)
+-- tmux-sessionizer
+map("n", "<leader><C-f>", ":silent !tmux neww tmux-sessionizer<CR>", opts)
+-- Telescope
+
+map('n', '<leader>ff', '<cmd>:Telescope find_files<CR>', opts)
+map('n', '<leader>fw', '<cmd>:Telescope live_grep<CR>', opts)
+map('n', '<leader>fb', '<cmd>:Telescope buffers<CR>', opts)
+map('n', '<leader>ft', '<cmd>:Telescope help_tags<CR>', opts)
