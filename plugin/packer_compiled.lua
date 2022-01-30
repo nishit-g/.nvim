@@ -119,10 +119,10 @@ _G.packer_plugins = {
     path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["gruvbox-material"] = {
+  ["gruvbox-flat.nvim"] = {
     loaded = true,
-    path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/gruvbox-material",
-    url = "https://github.com/sainnhe/gruvbox-material"
+    path = "/Users/nishit.gupta/.local/share/nvim/site/pack/packer/start/gruvbox-flat.nvim",
+    url = "https://github.com/eddyekofo94/gruvbox-flat.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
