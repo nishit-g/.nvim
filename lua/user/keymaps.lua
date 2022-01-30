@@ -75,3 +75,7 @@ map("n", "<leader>gc", ":Git commit<CR>", opts)
 map("n", "<leader>gb", ":Git blame<CR>", opts)
 map("n", "<leader>gh", ":diffget //2<CR>", opts)
 map("n", "<leader>gl", ":diffget //3<CR>", opts)
+
+-- Session : Dashboard
+map("n", "<leader>ss", ":<C-u>SessionSave<CR>", opts)
+map("n", "<leader>ss", ":<C-u>SessionLoad<CR>", opts)
