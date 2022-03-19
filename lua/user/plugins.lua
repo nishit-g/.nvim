@@ -41,6 +41,7 @@ return packer.startup(function(use)
 	-- use({ "sainnhe/gruvbox-material" })
 	-- use("morhetz/gruvbox")
 	use("eddyekofo94/gruvbox-flat.nvim")
+	-- use("sainnhe/everforest")
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
 	use("hrsh7th/cmp-buffer") -- buffer completions
