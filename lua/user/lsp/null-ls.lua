@@ -14,6 +14,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettierd,
 		formatting.stylua,
+		formatting.google_java_format,
 	},
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then

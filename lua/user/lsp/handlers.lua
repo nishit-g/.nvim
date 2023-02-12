@@ -89,8 +89,14 @@ M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" or client.name == "stylelint_lsp" then
 		client.resolved_capabilities.document_formatting = false
 	end
-	lsp_keymaps(bufnr)
-	lsp_highlight_document(client)
+	-- Find the clients capabilities
+	local cap = client.resolved_capabilities
+
+	-- Only highlight if compatible with the language
+	if cap.document_highlight then
+		lsp_keymaps(bufnr)
+		lsp_highlight_document(client)
+	end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -100,6 +106,6 @@ if not status_ok then
 	return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M

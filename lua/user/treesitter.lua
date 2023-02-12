@@ -20,6 +20,7 @@ configs.setup {
     enable_autocmd = false,
   },
   ensure_installed = {
+    "typescript",
     "tsx",
     "json",
     "yaml",

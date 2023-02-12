@@ -38,7 +38,7 @@ local config = {
 		-- 💀
 		-- See `data directory configuration` section in the README
 		"-data",
-		"/Users/nishit.gupta/personal",
+		"/Users/nishit.gupta/personal/workspace/",
 	},
 
 	-- 💀
