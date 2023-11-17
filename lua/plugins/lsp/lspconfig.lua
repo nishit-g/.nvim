@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
-  lazy = false,
+  event = { "BufReadPost", "BufNewFile" },
+  cmd = { "LspInfo", "LspInstall", "LspUninstall" },
   config = function()
     local status_ok, lspconfig = pcall(require, "lspconfig")
     if not status_ok then
