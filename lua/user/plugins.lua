@@ -1,48 +1,58 @@
 local fn = vim.fn
+local opt = vim.opt
 
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
+if fn.empty(fn.glob(lazypath)) > 0 then
+  fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+	print("Installing lazy plugin manager close and reopen Neovim...")
+	vim.cmd([[packadd lazy.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+opt.rtp:prepend(lazypath)
+
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
 	return
 end
 
--- Install your plugins here
-return packer.startup(function(use)
+return lazy.setup({
 	-- My plugins here
-	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
-	use ("nvim-lua/plenary.nvim") -- Useful lua functions  
-	use("numToStr/Comment.nvim") -- Easily comment stuff
+	{
+		"nvim-lua/plenary.nvim", -- Useful lua functions
+	},
+	{
+		"nvim-lua/popup.nvim", -- For popups
+	},
+	{
+		"numToStr/Comment.nvim", -- For easily commenting stuff
+	},
+	{
+		"eddyekofo94/gruvbox-flat.nvim", -- Gruvbox theme
+	},
+--   {
+-- "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+-- }
+})
+
+-- Install your plugins here
+-- return packer.startup(function(use)
+	-- use("wbthomason/packer.nvim") -- Have packer manage itself
+	-- use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+	-- use ("nvim-lua/plenary.nvim") -- Useful lua functions  
+	-- use("numToStr/Comment.nvim") -- Easily comment stuff
+
 	-- use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	-- -- Colorscheme
-	-- -- use({ "sainnhe/gruvbox-material" })
-	-- --[[ use("morhetz/gruvbox") ]]
-	-- use("eddyekofo94/gruvbox-flat.nvim")
-	-- -- use("sainnhe/everforest")
-	-- -- cmp plugins
+
+	-- cmp plugins
 	-- use("hrsh7th/nvim-cmp") -- The completion plugin
 	-- use("hrsh7th/cmp-buffer") -- buffer completions
 	-- use("hrsh7th/cmp-path") -- path completions
@@ -84,9 +94,7 @@ return packer.startup(function(use)
 	-- use("kyazdani42/nvim-web-devicons")
 	-- -- Indent Blankline
 	-- use("lukas-reineke/indent-blankline.nvim")
-	-- -- Startup Time
-	-- use("dstein64/vim-startuptime")
-	-- use("lewis6991/impatient.nvim")
+
 	-- -- Git
 	-- use("tpope/vim-fugitive")
 	-- use("tpope/vim-rhubarb")
@@ -105,7 +113,7 @@ return packer.startup(function(use)
 	-- -- Automatically set up your configuration after cloning packer.nvim
 	-- -- Put this at the end after all plugins
 	-- use("ggandor/lightspeed.nvim")
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
+-- 	if PACKER_BOOTSTRAP then
+-- 		require("packer").sync()
+-- 	end
+-- end)
