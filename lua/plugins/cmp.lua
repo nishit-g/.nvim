@@ -56,14 +56,14 @@ return {
         }
         -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-        return cmp.setup({
+        cmp.setup({
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body) -- For `luasnip` users.
                 end,
             },
             mapping = {
-                ["<C-t>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+                ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
                 ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
                 ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
                 ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
