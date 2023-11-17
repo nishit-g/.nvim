@@ -119,51 +119,7 @@ end
 
 lazy.setup("plugins", opts)
 
--- return lazy.setup({
--- 	-- My plugins here
--- 	{
--- 		"nvim-lua/plenary.nvim", -- Useful lua functions
--- 	},
--- 	{
--- 		"nvim-lua/popup.nvim", -- For popups
--- 	},
--- 	{
--- 		"numToStr/Comment.nvim", -- For easily commenting stuff
--- 	},
--- 	{
--- 		"eddyekofo94/gruvbox-flat.nvim", -- Gruvbox theme
--- 	},
--- 	{
--- 		"hrsh7th/nvim-cmp",
--- 		-- -- load cmp on InsertEnter
--- 		event = "InsertEnter",
--- 		dependencies = {
--- 		"hrsh7th/cmp-nvim-lsp",
--- 		"hrsh7th/cmp-buffer",
--- 		"hrsh7th/cmp-path",
---     "L3MON4D3/LuaSnip",
--- 		},
---   },
---   {
--- 	"L3MON4D3/LuaSnip",
--- 	version = "v2.*",
--- },
--- {
---   "nvim-tree/nvim-tree.lua",
---   version = "*",
---   lazy = false,
---   dependencies = {
---     "nvim-tree/nvim-web-devicons",
---   },
---   config = function()
---     require("nvim-tree").setup {}
---   end,
--- }
 
--- --   {
--- -- "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
--- -- }
--- })
 
 -- Install your plugins here
 -- return packer.startup(function(use)
@@ -178,8 +134,6 @@ lazy.setup("plugins", opts)
 	-- use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters  -- use { "ellisonleao/gruvbox.nvim" }
 	-- use("glepnir/lspsaga.nvim")
 	-- use("folke/lsp-colors.nvim")
-	-- -- Telescope
-	-- use("nvim-telescope/telescope.nvim")
 
 	-- -- Treesitter
 	-- use({
@@ -190,9 +144,6 @@ lazy.setup("plugins", opts)
 
 	-- -- Git
 	-- use("lewis6991/gitsigns.nvim")
-
-	-- -- NvimTree
-	-- use("kyazdani42/nvim-tree.lua")
 
 	-- -- Bufferline
 	-- use("akinsho/bufferline.nvim")
