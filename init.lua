@@ -1,6 +1,9 @@
-require("user.impatient")
+-- FOR improving startup time
+vim.loader.enable()
+
 require("user.options")
 require("user.plugins")
+require("user.comment")
 require("user.keymaps")
 require("user.colorscheme")
 require("user.cmp")
@@ -8,7 +11,6 @@ require("user.lsp")
 require("user.telescope")
 require("user.treesitter")
 require("user.autopairs")
-require("user.comment")
 require("user.gitsigns")
 require("user.nvimtree")
 require("user.bufferline")
