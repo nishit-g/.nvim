@@ -117,7 +117,7 @@ if not status_ok then
   return
 end
 
-lazy.setup("plugins", opts)
+lazy.setup({ { import = "plugins" }, { import = "plugins.lsp" } }, opts)
 
 
 
