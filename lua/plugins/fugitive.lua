@@ -1,0 +1,7 @@
+-- Best Git plugin alskdfjal
+return {
+  "tpope/vim-fugitive",
+  dependencies = {
+    "tpope/vim-rhubarb"
+  }
+}
