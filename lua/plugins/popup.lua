@@ -1,4 +1,5 @@
 -- For popups
 return {
-    "nvim-lua/popup.nvim", 
+	"nvim-lua/popup.nvim",
 }
+
