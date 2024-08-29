@@ -126,21 +126,11 @@ lazy.setup({ { import = "plugins" }, { import = "plugins.lsp" } }, opts)
 -- use("glepnir/lspsaga.nvim")
 -- use("folke/lsp-colors.nvim")
 
--- -- Treesitter
--- use({
--- 	"nvim-treesitter/nvim-treesitter",
--- 	run = ":TSUpdate",
--- })
--- use("JoosepAlviste/nvim-ts-context-commentstring")
-
 -- -- Git
 -- use("lewis6991/gitsigns.nvim")
 
 -- -- Bufferline
 -- use("akinsho/bufferline.nvim")
-
--- -- DevIcons
--- use("kyazdani42/nvim-web-devicons")
 
 -- -- Lualine
 -- use({
@@ -150,7 +140,6 @@ lazy.setup({ { import = "plugins" }, { import = "plugins.lsp" } }, opts)
 -- use("maxmellon/vim-jsx-pretty")
 
 -- use("glepnir/dashboard-nvim")
--- --[[ use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" }) ]]
 
 -- -- JAVA
 -- use("mfussenegger/nvim-jdtls")

@@ -13,6 +13,8 @@ return {
 		lspconfig.tsserver.setup({})
 		lspconfig.prismals.setup({})
 		lspconfig.tailwindcss.setup({})
+		lspconfig.golangci_lint_ls.setup({})
+		lspconfig.gopls.setup({})
 
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -26,9 +28,19 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
-				-- Enable completion triggered by <c-x><c-o>
+				local client = vim.lsp.get_client_by_id(ev.data.client_id)
+				local capabilities = client.server_capabilities -- Enable completion triggered by <c-x><c-o>
 				vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
+				-- show definition of current symbol
+				--
+				if capabilities.definitionProvider then
+					-- if client == "typescript-tools" then
+					-- 	vim.keymap.set("n", "<leader>gd", "<cmd>TSToolsGoToSourceDefinition<cr>", { buffer = ev.buf })
+					-- else
+					-- 	vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = ev.buf })
+					-- end
+					vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = ev.buf })
+				end
 				-- Buffer local mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				local opts = { buffer = ev.buf }

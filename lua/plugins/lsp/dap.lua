@@ -47,6 +47,16 @@ return {
 				},
 				{
 					type = "pwa-node",
+					request = "attach",
+					name = "Launch Compiled JS",
+					processId = dap_utils.pick_process,
+					program = "${workspaceFolder}/build/index.js", -- Update this path
+					cwd = "${workspaceFolder}",
+					sourceMaps = true,
+					skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
+				},
+				{
+					type = "pwa-node",
 					-- attach to an already running node process with --inspect flag
 					-- default port: 9222
 					-- port = 9222,
@@ -56,7 +66,7 @@ return {
 					-- allows us to pick the process using a picker
 					processId = dap_utils.pick_process,
 					-- name of the debug action you have to select for this config
-					name = "Attach debugger to existing `node --inspect` process",
+					name = "JS based : Attach debugger to existing `node --inspect` process",
 					-- resolve source maps in nested locations while ignoring node_modules
 					resolveSourceMapLocations = {
 						"${workspaceFolder}/**",
