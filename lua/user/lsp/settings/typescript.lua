@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig")
-
 -- Cache for project roots
 local root_cache = {}
 
@@ -82,8 +80,8 @@ local function on_attach(client, bufnr)
 	-- Add any other on_attach logic here
 end
 
--- TSServer setup
-lspconfig.tsserver.setup({
+-- TSServer specific setup
+local tsserver_opts = {
 	root_dir = function(fname)
 		local roots = find_project_roots(fname)
 		return roots[1] or vim.loop.cwd() -- Return the nearest project root or current working directory
@@ -123,7 +121,38 @@ lspconfig.tsserver.setup({
 		},
 	},
 	single_file_support = true,
-})
+}
+
+-- LSP installer setup
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok then
+	return
+end
+
+-- Register a handler that will be called for all installed servers.
+lsp_installer.on_server_ready(function(server)
+	local opts = {
+		on_attach = require("user.lsp.handlers").on_attach,
+		capabilities = require("user.lsp.handlers").capabilities,
+	}
+
+	if server.name == "jsonls" then
+		local jsonls_opts = require("user.lsp.settings.jsonls")
+		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+	end
+
+	if server.name == "sumneko_lua" then
+		local sumneko_opts = require("user.lsp.settings.sumneko_lua")
+		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	end
+
+	if server.name == "tsserver" then
+		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+	end
+
+	-- This setup() function is exactly the same as lspconfig's setup function.
+	server:setup(opts)
+end)
 
 -- Ensure TSServer is running
 local function ensure_tsserver_running()
