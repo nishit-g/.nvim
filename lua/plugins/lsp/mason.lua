@@ -43,10 +43,14 @@ return {
 					on_attach = require("user.lsp.handlers").on_attach,
 					capabilities = require("user.lsp.handlers").capabilities,
 				}
-
-				local require_ok, server_config = pcall(require, "user.lsp.settings." .. server_name)
-				if require_ok then
-					opts = vim.tbl_deep_extend("force", server_config, opts)
+				if server_name == "tsserver" then
+					local tsserver_opts = require("user.lsp.settings.tsserver").tsserver_opts
+					opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+				else
+					local require_ok, server_config = pcall(require, "user.lsp.settings." .. server_name)
+					if require_ok then
+						opts = vim.tbl_deep_extend("force", server_config, opts)
+					end
 				end
 
 				require("lspconfig")[server_name].setup(opts)
