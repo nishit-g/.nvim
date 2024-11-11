@@ -32,8 +32,8 @@ map("n", "<S-h>", ":bprevious<CR>", opts)
 -- Resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", opts)
 map("n", "<C-Down>", ":resize +2<CR>", opts)
-map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+map("n", "<C-Right>", ":vertical resize -2<CR>", opts)
+map("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 
 --Copy till end of the line
 map("n", "Y", "y$", opts)
@@ -56,7 +56,9 @@ map("n", "<leader>ff", "<cmd>:Telescope find_files<CR>", opts)
 map("n", "<leader>fw", "<cmd>:Telescope live_grep<CR>", opts)
 map("n", "<leader>fb", "<cmd>:Telescope buffers<CR>", opts)
 map("n", "<leader>ft", "<cmd>:Telescope help_tags<CR>", opts)
-
+map("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>", opts)
+map("n", "<leader>fgb", "<cmd>Telescope git_branches<CR>", opts)
+map("n", "<leader>fgs", "<cmd>Telescope git_status<CR>", opts)
 -- Comment
 -- gcc : line comment
 -- gbc : block comment

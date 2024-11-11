@@ -11,7 +11,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettierd.with({
 			extra_filetypes = { "toml", "json" },
-			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width", "4" },
 		}),
 		formatting.stylua,
 		formatting.google_java_format,
