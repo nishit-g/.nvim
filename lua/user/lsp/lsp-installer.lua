@@ -22,7 +22,7 @@ lsp_installer.on_server_ready(function(server)
 	end
 
 	if server.name == "tsserver" then
-		local ts_opts = require("user.lsp.settings.typescript")
+		local ts_opts = require("user.lsp.settings.tsserver")
 		opts = vim.tbl_deep_extend("force", ts_opts, opts)
 	end
 	-- This setup() function is exactly the same as lspconfig's setup function.
