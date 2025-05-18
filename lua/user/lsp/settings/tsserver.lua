@@ -1,31 +1,20 @@
 local M = {}
 
--- Logging function for debugging
-local function log(message)
-    local log_file = vim.fn.stdpath("data") .. "/tsserver_log.txt"
-    local f = io.open(log_file, "a")
-    if f then
-        f:write(os.date("%Y-%m-%d %H:%M:%S") .. " " .. message .. "\n")
-        f:close()
-    end
-end
+-- Simplified root directory detection
 
--- Enhanced root directory detection
 local function get_root_dir(fname)
-    local root = require("lspconfig.util").root_pattern(
+    return require("lspconfig.util").root_pattern(
         "tsconfig.json",
         "package.json",
         "jsconfig.json",
         ".git"
     )(fname)
-    
-    log("TypeScript root directory: " .. (root or "not found"))
-    return root
 end
+
 
 -- Optimized on_attach function
 local function on_attach(client, bufnr)
-    -- Disable tsserver formatting if you plan to use null-ls
+    -- Disable tsserver formatting (using conform.nvim instead)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
 
@@ -35,22 +24,10 @@ local function on_attach(client, bufnr)
         -- Disable certain features for large files
         client.server_capabilities.semanticTokensProvider = nil
         vim.diagnostic.disable(bufnr)
-        log("Large file detected, disabled semantic tokens and diagnostics")
     end
-
-    -- Set up buffer-local keymaps
-    local opts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-
-    log("TSServer attached to buffer: " .. vim.api.nvim_buf_get_name(bufnr))
 end
 
--- TSServer configuration
+-- Optimized TSServer configuration
 M.tsserver_opts = {
     root_dir = get_root_dir,
     single_file_support = true,
@@ -58,14 +35,16 @@ M.tsserver_opts = {
     -- Performance optimizations
     init_options = {
         hostInfo = "neovim",
-        maxTsServerMemory = 8192,
+        maxTsServerMemory = 4096,
+
         tsserver = {
-            maxTsServerMemory = 8192,
-            useSingleInferredProject = true,
-            disableAutomaticTypingAcquisition = false,
+
+            maxTsServerMemory = 4096,
+            disableAutomaticTypingAcquisition = true,
             watchOptions = {
                 watchFile = "useFsEvents",
                 watchDirectory = "useFsEvents",
+
                 fallbackPolling = "dynamicPriority",
                 excludeDirectories = {
                     "node_modules",
@@ -74,22 +53,28 @@ M.tsserver_opts = {
                     ".git",
                     "coverage"
                 }
+
             }
         },
+        -- Streamlined preferences with fewer inlay hints to improve performance
         preferences = {
             importModuleSpecifierPreference = "relative",
-            includeInlayParameterNameHints = "all",
-            includeInlayEnumMemberValueHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = true
+            includeInlayParameterNameHints = "literals", -- Only show for literals instead of "all"
+            includeInlayEnumMemberValueHints = false,
+            includeInlayFunctionLikeReturnTypeHints = false,
+
+            includeInlayFunctionParameterTypeHints = false,
+            includeInlayPropertyDeclarationTypeHints = false,
+
+            includeInlayVariableTypeHints = false
         }
     },
 
     -- Reduce CPU usage
+
     flags = {
-        debounce_text_changes = 150,
+        debounce_text_changes = 300, -- Increased from 150 to reduce CPU usage
+
         allow_incremental_sync = true,
     },
 
@@ -97,32 +82,33 @@ M.tsserver_opts = {
     settings = {
         typescript = {
             inlayHints = {
-                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHints = "literals",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionParameterTypeHints = false,
+                includeInlayVariableTypeHints = false,
+                includeInlayPropertyDeclarationTypeHints = false,
+                includeInlayFunctionLikeReturnTypeHints = false,
+                includeInlayEnumMemberValueHints = false,
             },
             suggest = {
                 includeCompletionsForModuleExports = true,
                 includeCompletionsWithInsertText = true,
                 includeAutomaticOptionalChainCompletions = true,
             },
-            implementationsCodeLens = true,
-            referencesCodeLens = true,
+            implementationsCodeLens = false, -- Disabled to improve performance
+            referencesCodeLens = false, -- Disabled to improve performance
             updateImportsOnFileMove = "always"
         },
         javascript = {
             inlayHints = {
-                includeInlayParameterNameHints = "all",
+
+                includeInlayParameterNameHints = "literals",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionParameterTypeHints = false,
+                includeInlayVariableTypeHints = false,
+                includeInlayPropertyDeclarationTypeHints = false,
+                includeInlayFunctionLikeReturnTypeHints = false,
+                includeInlayEnumMemberValueHints = false,
             },
             suggest = {
                 includeCompletionsForModuleExports = true,
@@ -146,13 +132,13 @@ M.tsserver_opts = {
     }
 }
 
--- Debug function
+-- Debug function (kept but simplified)
 function M.debug_tsserver()
     local clients = vim.lsp.get_active_clients({ name = "tsserver" })
     print("Active TSServer instances: " .. #clients)
-    
+
     for i, client in ipairs(clients) do
-        print(string.format("\nServer %d:", i))
+        print(string.format("Server %d:", i))
         print("  Root directory: " .. (client.config.root_dir or "Unknown"))
         print("  Buffer count: " .. #vim.lsp.get_buffers_by_client_id(client.id))
     end
